@@ -131,9 +131,8 @@ const supportedLocales = [rootLocale, "en"];
 const vitePressSidebarConfigs = supportedLocales
   .map((lang) => {
     const rootPath = resolve(__dirname, "..", lang);
-    if (!existsSync(rootPath)) {
-      return null;
-    }
+    if (!existsSync(rootPath)) return null;
+
     return {
       ...vitePressSidebarOptions,
       ...(rootLocale === lang ? {} : { basePath: `/${lang}/` }),

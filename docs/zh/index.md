@@ -7,10 +7,10 @@ hero:
   actions:
     - theme: brand
       text: HyphaShop
-      link: /zh/hyphashop
+      link: /hyphashop
     - theme: brand
       text: HyphaScript
-      link: /zh/hyphascript
+      link: /hyphascript
 
 features:
   - icon: 🏪

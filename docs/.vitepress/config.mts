@@ -4,6 +4,7 @@ export default defineConfig({
   title: "HyphaDocs",
   description: "Official Document for Hypha series Minecraft Paper plugin",
   cleanUrls: true,
+  base: process.env.CI ? "/HyphaDocs/" : "/",
   themeConfig: {
     nav: [
       { text: "首页", link: "/" },

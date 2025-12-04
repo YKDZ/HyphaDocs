@@ -1,10 +1,10 @@
 # 图标属性
 
-菜单图标拥有一些特殊的属性，用于定义自动刷新、子图标等行为。它们的地位与 [装饰属性](https://node.encmys.cn:19200./../../物品定义/装饰属性.md) 基本相同。
+菜单图标拥有一些特殊的属性，用于定义自动刷新、子图标等行为。它们的地位与 [装饰属性](../../物品定义/decorator) 基本相同。
 
 ## update-period
 
-`update-period` 定义了一个图标的更新频率，接受一个普通字符串作为值，格式为 [时间字符串](https://node.encmys.cn:19200/doc/5pe26ze05a2x56ym5liy-NRqUPN8qIa)。
+`update-period` 定义了一个图标的更新频率，接受一个普通字符串作为值，格式为 [时间字符串](../../杂项/duration-format)。
 
 ```yaml
 update-period: 1s

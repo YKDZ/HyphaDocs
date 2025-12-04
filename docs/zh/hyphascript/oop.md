@@ -150,7 +150,7 @@ false
 
 ## 区别于 JS
 
-语法上，HS 的 `class` 语法实际上在模仿 [对象字面量](https://node.encmys.cn:19200./字面量/对象.md)：
+语法上，HS 的 `class` 语法实际上在模仿 [对象字面量](./字面量/object)：
 
 ```js
 const obj = {

@@ -102,13 +102,13 @@ title:
 
 ## title-update-period
 
-`title-update-period` 表示标题刷新的频率，接受一个 [时间字符串](https://node.encmys.cn:19200/doc/5pe26ze05a2x56ym5liy-NRqUPN8qIa) 为值。不写或置 `0s` 表示不刷新。
+`title-update-period` 表示标题刷新的频率，接受一个 [时间字符串](../杂项/duration-format) 为值。不写或置 `0s` 表示不刷新。
 
 ## scroll-mode
 
 `scroll-mode` 仅在带有内容（即 `structure` 中包含 `x` 字符）的菜单中有效，接受一个普通字符串作为值，该字符串只能是 `VERTICAL` 或 `HORIZONTAL`，表示 `scroll` 时内容是 `按列` 还是 `按行` 滚动。
 
-![按列滚动](assets/按列滚动-20250901132739-hj2dwnh.gif " =1280x720") ![按行滚动](assets/按行滚动-20250901132739-gnq5mx8.gif " =1280x720")
+![按列滚动](./assets/按列滚动-20250901132739-hj2dwnh.gif " =1280x720") ![按行滚动](./assets/按行滚动-20250901132739-gnq5mx8.gif " =1280x720")
 
 ## page-mode
 
@@ -130,14 +130,14 @@ structure:
 structure:
   - "1 2 3"
 structure:
-  - "中 文 也 可 用 あ　い　う　え"
+  - "中 文 也 可 用"
 ```
 
 ## icons
 
 `icons` 定义了上述 `structure` 中每个字符对应显示的图标，接受若干个图标配置块作为值。
 
-每个图标配置块的详细格式见 [图标](图标)。
+每个图标配置块的详细格式见 [图标](./图标/index)。
 
 ```yaml
 icons:

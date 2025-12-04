@@ -1,50 +1,137 @@
-import { defineConfig } from "vitepress";
+import { defineConfig, type DefaultTheme, type UserConfig } from "vitepress";
+import { withSidebar } from "vitepress-sidebar";
+import type { VitePressSidebarOptions } from "vitepress-sidebar/types";
+import tailwindcss from "@tailwindcss/vite";
 
-export default defineConfig({
+const config = {
   title: "HyphaDocs",
-  description: "Official Document for Hypha series Minecraft Paper plugin",
-  cleanUrls: true,
-  base: process.env.CI ? "/HyphaDocs/" : "/",
-  themeConfig: {
-    nav: [
-      { text: "首页", link: "/" },
-      { text: "HyphaScript", link: "/hyphascript" },
-    ],
 
-    sidebar: [
-      {
-        text: "HyphaScript",
-        items: [
-          { text: "介绍", link: "/hyphascript/index" },
-          { text: "类型", link: "/hyphascript/type" },
-          { text: "运算符", link: "/hyphascript/operator" },
-          {
-            text: "字面量",
-            collapsed: true,
-            items: [
-              { text: "字符串", link: "/hyphascript/literal/string" },
-              { text: "数字", link: "/hyphascript/literal/number" },
-              { text: "布尔值", link: "/hyphascript/literal/boolean" },
-              { text: "数组", link: "/hyphascript/literal/array" },
-              { text: "对象", link: "/hyphascript/literal/object" },
-              { text: "空", link: "/hyphascript/literal/null" },
-              {
-                text: "模板字符串",
-                link: "/hyphascript/literal/template-string",
-              },
-            ],
-          },
-          { text: "函数", link: "/hyphascript/function" },
-          { text: "导入", link: "/hyphascript/import" },
-          { text: "面向对象", link: "/hyphascript/oop" },
-          { text: "异步处理", link: "/hyphascript/async" },
-          { text: "API", link: "/hyphascript/api" },
+  description: "Official Document for Hypha series Minecraft Paper plugin",
+
+  cleanUrls: true,
+
+  base: process.env.CI ? "/HyphaDocs/" : "/",
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
+
+  rewrites: {
+    "zh/:rest*": ":rest*",
+  },
+
+  lastUpdated: true,
+
+  locales: {
+    root: {
+      label: "简体中文",
+      lang: "zh",
+
+      themeConfig: {
+        nav: [
+          { text: "首页", link: "/" },
+          { text: "HyphaScript", link: "/hyphascript" },
+          { text: "HyphaShop", link: "/hyphashop" },
+        ],
+        docFooter: {
+          prev: "上一页",
+          next: "下一页",
+        },
+        outline: {
+          label: "大纲",
+        },
+        lastUpdated: {
+          text: "最后更新",
+        },
+        langMenuLabel: "切换语言",
+        returnToTopLabel: "返回顶部",
+        sidebarMenuLabel: "菜单",
+        darkModeSwitchLabel: "外观",
+        lightModeSwitchTitle: "切换到浅色主题",
+        darkModeSwitchTitle: "切换到深色主题",
+      },
+    },
+    en: {
+      label: "English",
+      lang: "en",
+
+      themeConfig: {
+        nav: [
+          { text: "首页", link: "/en" },
+          { text: "HyphaScript", link: "/en/hyphascript" },
+          { text: "HyphaShop", link: "/en/hyphashop" },
         ],
       },
-    ],
+    },
+  },
 
+  markdown: {
+    image: {
+      lazyLoading: true,
+    },
+  },
+
+  themeConfig: {
     socialLinks: [
       { icon: "github", link: "https://github.com/YKDZ/HyphaDocs" },
     ],
+
+    search: {
+      provider: "local",
+      options: {
+        locales: {
+          root: {
+            translations: {
+              button: {
+                buttonText: "搜索",
+                buttonAriaLabel: "搜索",
+              },
+              modal: {
+                displayDetails: "显示详细列表",
+                resetButtonTitle: "重置搜索",
+                backButtonTitle: "关闭搜索",
+                noResultsText: "没有结果",
+                footer: {
+                  selectText: "选择",
+                  selectKeyAriaLabel: "输入",
+                  navigateText: "导航",
+                  navigateUpKeyAriaLabel: "上箭头",
+                  navigateDownKeyAriaLabel: "下箭头",
+                  closeText: "关闭",
+                  closeKeyAriaLabel: "esc",
+                },
+              },
+            },
+          },
+        },
+      },
+    },
   },
-});
+} satisfies UserConfig<NoInfer<DefaultTheme.Config>>;
+
+const vitePressSidebarOptions = {
+  documentRootPath: "/docs",
+  collapsed: false,
+  useTitleFromFileHeading: true,
+  useFolderLinkFromIndexFile: true,
+  useFolderTitleFromIndexFile: true,
+  sortMenusByFrontmatterOrder: true,
+  capitalizeFirst: false,
+  frontmatterOrderDefaultValue: 1024,
+} satisfies VitePressSidebarOptions;
+
+const rootLocale = "zh";
+const supportedLocales = [rootLocale, "en"];
+
+const vitePressSidebarConfigs = [
+  ...supportedLocales.map((lang) => {
+    return {
+      ...vitePressSidebarOptions,
+      ...(rootLocale === lang ? {} : { basePath: `/${lang}/` }),
+      documentRootPath: `/docs/${lang}`,
+      resolvePath: rootLocale === lang ? "/" : `/${lang}/`,
+    };
+  }),
+];
+
+export default defineConfig(withSidebar(config, vitePressSidebarConfigs));

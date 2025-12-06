@@ -55,7 +55,7 @@ PRODUCT_2:
 
 ## stock
 
-商品的库存，详见 [库存](./storage)。
+商品的库存，详见 [库存](./stock)。
 
 ## cacheable
 

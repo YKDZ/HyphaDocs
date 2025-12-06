@@ -27,6 +27,8 @@ const config = {
 
   lastUpdated: true,
 
+  head: [["link", { rel: "icon", href: "/assets/favicon.svg" }]],
+
   locales: {
     root: {
       label: "简体中文",

@@ -6,7 +6,7 @@
 若你需要赋予物品各种 RPG 属性、技能，抑或是进行更复杂的物品定义，请选择更强大的第三方插件（如 [MMOItems](https://www.spigotmc.org/resources/mmoitems.39267/) 等）并通过 [基本物品](base) 设置导入到本插件。本插件不是物品库插件，不会在物品定义方面深究。
 :::
 
-## name
+## name <Badge type="tip" text="HS" />
 
 `name` 代表一个物品的显示名称，接受一个 **HS** 字符串作为值。
 
@@ -18,11 +18,11 @@ name: |
       arr[Math.floor((Math.random() * arr.length())];
 ```
 
-## lore
+## lore <Badge type="tip" text="HS" />
 
-`lore` 代表一个物品 Tooltip 中的说明部分，接受一个 **HS** 字符串或字符串数组的列表作为值。
+`lore` 代表一个物品 Tooltip 中的说明部分。
 
-```javascript
+```yaml
 lore:
   - "第一行"
   - "<red>第二行"
@@ -31,13 +31,16 @@ lore:
   - "第三行"
 ```
 
-若某一行返回的值为 `null`，则该行不会被显示。这种特性目前被用于在商品图标的 `lore` 配置中省略特定空行。
+`lore` 中 HS 的解析有些特殊规则：
 
-## amount
+- 若某一行的值为 `null`，则该行不会被显示。这种特性目前被用于在商品图标的 `lore` 配置中省略特定空行
+- 若某一行的值是一个数组，这个数组会被自动展开为复数单行
 
-`amount` 代表一个物品的数量，接受一个 **HS** 数字作为值，若未显式指定则默认为 `1`。
+## amount <Badge type="tip" text="HS" />
 
-```javascript
+`amount` 代表一个物品的数量，若未显式指定则默认为 `1`。
+
+```yaml
 amount: 8
 amount: 1 * 3
 amount: Math.random() * 32

@@ -20,6 +20,10 @@ MAGIC_ORANGE_WOOL:
       - "<gray>与其他羊毛不同的是,"
       - "<gray>这个羊毛在被购买时"
       - "<gray>会带上一条自定义 lore."
+  buy-price:
+    mean: 80
+    dev: 10
+    round: 0
   sell-price:
     disable: true
 ```

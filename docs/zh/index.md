@@ -5,7 +5,7 @@ hero:
   name: HyphaDocs
   tagline: 学习如何使用 Hypha 系列插件
   image:
-    src: assets/logo.svg
+    src: logo.svg
     alt: Hypha
   actions:
     - theme: brand

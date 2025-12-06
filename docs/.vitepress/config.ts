@@ -27,7 +27,7 @@ const config = {
 
   lastUpdated: true,
 
-  head: [["link", { rel: "icon", href: "/assets/favicon.svg" }]],
+  head: [["link", { rel: "icon", href: "/favicon.svg" }]],
 
   locales: {
     root: {

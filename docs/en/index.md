@@ -4,6 +4,9 @@ layout: home
 hero:
   name: HyphaDocs
   tagline: Learn how to use the Hypha series of plugins
+  image:
+    src: logo.svg
+    alt: Hypha
   actions:
     - theme: brand
       text: HyphaShop

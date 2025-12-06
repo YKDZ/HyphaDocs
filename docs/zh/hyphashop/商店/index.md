@@ -29,13 +29,6 @@ products:
 - `PACK:商品包 ID` 会导入商品包（`product/misc.yml` 即为一个商品包，ID 为 `misc`）中的所有商品
 - 其他情况下，会将值视为 `商品 ID`，尝试导入指定 ID 的商品
 
-## 商店设置
-
-详见：
-
-- [商人模式](./merchant)
-- [刷新](./restock)
-
 ## 商店菜单
 
 详见 [商店 GUI](./shop-gui)

@@ -18,7 +18,6 @@
 ```yaml
 buy-price:
   fixed: 32
-  currency: VAULT
 ```
 
 顾名思义，这种商品的价格是一个固定值，不会随着商店刷新（restock）而产生任何变化。
@@ -53,24 +52,24 @@ buy-price:
 
 ```yaml
 buy-price:
-  formula: calculateDynamicPrice(total_history_bought_amount, total_history_sold_amount, 50, product_amount)
+  formula: calculateDynamicPrice(total_history_bought_amount, total_history_sold_amount, 256, product_amount)
   context: |
             function calculateDynamicPrice(historyBought, historySold, basePrice, amount) {
-                const ELASTICITY = 0.15;
-                const SMOOTH = 50;
-                const MIN_MULT = 0.4;
-                const MAX_MULT = 2.5;
+                const ELASTICITY = 0.15
+                const SMOOTH = 50
+                const MIN_MULT = 0.4
+                const MAX_MULT = 2.5
 
-                const marketPressure = (historyBought - historySold) / SMOOTH;
+                const marketPressure = (historyBought - historySold) / SMOOTH
 
-                const multiplier = 1 + marketPressure * ELASTICITY;
+                const multiplier = 1 + marketPressure * ELASTICITY
 
                 const clampedMultiplier =
-                    Math.max(MIN_MULT, Math.min(MAX_MULT, multiplier));
+                    Math.max(MIN_MULT, Math.min(MAX_MULT, multiplier))
 
-                const amountFactor = 1 + Math.log10(amount + 1) * 0.05;
+                const amountFactor = 1 + Math.log10(amount + 1) * 0.05
 
-                return basePrice * clampedMultiplier * amountFactor;
+                return basePrice * clampedMultiplier * amountFactor
             }
 ```
 
@@ -115,6 +114,30 @@ products:
     sell-price:
       fixed: 512
 ```
+
+## 货币类型
+
+对于只涉及一种货币类型的价格，可以使用以下语法：
+
+```yaml
+buy-price:
+  fixed: 10
+  currency: EXP
+```
+
+若不指定 `currency`，则货币类型默认为 [基本货币](../currency#base)。
+
+对于涉及多种货币的价格，可以使用以下语法：
+
+```yaml
+buy-price:
+  - fixed: 10
+    currency: EXP
+  - fixed: 32
+    currency: VAULT
+```
+
+这代表此商品需要用 `10 EXP` 和 `32 VAULT 货币` 购买。
 
 ## 四舍五入
 

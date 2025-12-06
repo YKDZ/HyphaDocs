@@ -34,11 +34,13 @@ const config = {
       label: "简体中文",
       lang: "zh",
 
+      description: "Hypha 系列 Minecraft Paper 插件的官方文档",
+
       themeConfig: {
         nav: [
           { text: "首页", link: "/" },
-          { text: "HyphaScript", link: "/hyphascript" },
           { text: "HyphaShop", link: "/hyphashop" },
+          { text: "HyphaScript", link: "/hyphascript" },
         ],
         docFooter: {
           prev: "上一页",
@@ -62,11 +64,13 @@ const config = {
       label: "English",
       lang: "en",
 
+      description: "Official Document for Hypha series Minecraft Paper plugin",
+
       themeConfig: {
         nav: [
-          { text: "首页", link: "/en" },
-          { text: "HyphaScript", link: "/en/hyphascript" },
+          { text: "Home", link: "/en" },
           { text: "HyphaShop", link: "/en/hyphashop" },
+          { text: "HyphaScript", link: "/en/hyphascript" },
         ],
       },
     },

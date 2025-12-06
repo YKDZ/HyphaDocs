@@ -1,4 +1,4 @@
-# 配置属性
+# 属性
 
 一个商品配置项可以有若干属性：
 
@@ -72,3 +72,24 @@ GIFT:
 ```
 
 此商品被设置为不可缓存，则它的物品名会在上架时被确定，则所有玩家购买到的钻石的名称都是 `A gift to`，因为只有交易期间才有 `__player` 对象。
+
+## context <Badge type="tip" text="HS" />
+
+商品绑定的 HS 上下文，接受一个字符串作为值，在商品加载阶段即被计算。
+
+## actions <Badge type="tip" text="HS" />
+
+定义特定事件钩子被触发时执行的操作，具体的钩子参见 [事件钩子](./event-hook)。
+
+```yaml{7-10}
+WARM_WELCOME:
+  icon:
+    base: sunflower
+    name: "<white>Warm welcome from server"
+  sell-price:
+    disable: true
+  actions:
+    on-give:
+      - command{cmd=`tell ${player_name} Welcome ${player_name}!`}
+      - command{cmd=`tell ${player_name} Have fun!`, repeat=3}
+```

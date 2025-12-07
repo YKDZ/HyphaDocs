@@ -7,6 +7,7 @@ import { dirname, resolve } from "node:path";
 import { existsSync } from "node:fs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const gTag = "G-D9EE4E8H9Q";
 
 const config = {
   title: "HyphaDocs",
@@ -27,7 +28,24 @@ const config = {
 
   lastUpdated: true,
 
-  head: [["link", { rel: "icon", href: "favicon.svg" }]],
+  head: [
+    ["link", { rel: "icon", href: "favicon.svg" }],
+    [
+      "script",
+      {
+        async: "",
+        src: `https://www.googletagmanager.com/gtag/js?id=${gTag}`,
+      },
+    ],
+    [
+      "script",
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${gTag}');`,
+    ],
+  ],
 
   locales: {
     root: {

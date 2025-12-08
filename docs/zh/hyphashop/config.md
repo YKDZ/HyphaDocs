@@ -10,7 +10,7 @@ order: 4
 
 ```yaml
 language:
-  default-message: en_US
+  default-message: en-US
 ```
 
 插件本身会通过玩家的客户端语言配置自动选择要应用的语言文件，但若对应语言文件不存在，则会用这里配置的语言文件做回退。
@@ -41,7 +41,7 @@ database:
     enabled: true
 ```
 
-插件使用的数据库，目前仅支持 SQLite。
+插件使用的数据库，目前仅支持 `SQLite`。
 
 ## script
 

@@ -70,12 +70,20 @@ const config = {
         lastUpdated: {
           text: "最后更新",
         },
+        notFound: {
+          title: "页面不存在",
+          quote: "并非所有路径都通向某处",
+          linkText: "回到起点",
+        },
         langMenuLabel: "切换语言",
         returnToTopLabel: "返回顶部",
         sidebarMenuLabel: "菜单",
         darkModeSwitchLabel: "外观",
         lightModeSwitchTitle: "切换到浅色主题",
         darkModeSwitchTitle: "切换到深色主题",
+        editLink: {
+          text: "编辑此页面",
+        },
       },
     },
     en: {
@@ -101,6 +109,10 @@ const config = {
   },
 
   themeConfig: {
+    editLink: {
+      pattern: "https://github.com/YKDZ/HyphaDocs/edit/main/docs/:path",
+    },
+
     socialLinks: [
       { icon: "github", link: "https://github.com/YKDZ/HyphaDocs" },
     ],

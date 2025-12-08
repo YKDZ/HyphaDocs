@@ -6,17 +6,20 @@
 
 ## Java 类
 
-用以下语法导入一个 Java 类：
+`from` 以 `java:` 或 `java.` 开头的导入被视为一个 Java 类导入（其中 `java:` 前缀会被从类路径忽略）：
 
 ```js
-import "java.util.Random" from "java"
+import Random from "java.util.Random"
+import Random as Rand from "java.util.Random"
+import Rand from "java:java.util.Random"
+import Random from "java:java.util.Random"
 ```
 
 之后你可以像原生 Java 代码一样调用其中的静态方法或 `new` 一个实例等：
 
 ```js
-import "java.lang.Math"
-import "java.util.Random"
+import Math from "java.lang.Math"
+import Random from "java.util.Random"
 
 const num = Math.random()
 const random = new Random()
@@ -30,10 +33,10 @@ const random = new Random()
 
 ```js
 // papi.hps 文件
-import "me.clip.placeholderapi.PlaceholderAPI" from "java"
+import PAPI from "java:me.clip.placeholderapi.PlaceholderAPI"
 
 export const papi = (str, __player) => {
-  return PlaceholderAPI.setPlaceholders(__player, str)
+  return PAPI.setPlaceholders(__player, str)
 }
 ```
 

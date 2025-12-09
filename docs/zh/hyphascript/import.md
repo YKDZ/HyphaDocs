@@ -25,9 +25,9 @@ const num = Math.random()
 const random = new Random()
 ```
 
-## 其他 .hps 文件导出的内容
+## 导入 .hps 模块
 
-所有在 `ScriptManager` 中注册的脚本（`Script` 对象）以及在 `InternalObjectManager` 中注册的内部对象（`InternalObject` 的实现）都可以被其他脚本导入。
+HS 默认提供类似 JS commonjs 模块的动态模块导入机制（但语法累类似ESM），模块在用时被按需加载。
 
 以下是合法的导入：
 
@@ -43,11 +43,11 @@ export const papi = (str, __player) => {
 ```js
 // 另一个脚本中
 // 普通的导入
-import { papi } from "papi"
+import { papi } from "papi.hps"
 // 重命名导入
-import { papi as placeholder } from "papi"
+import { papi as placeholder } from "papi.hps"
 // 全部重命名导入
-import * as PlaceholderAPI from "papi"
+import * as PlaceholderAPI from "papi.hps"
 ```
 
 之后可以分别用以下语句调用导入的函数、变量等：
@@ -62,7 +62,3 @@ PlaceholderAPI.papi("Hello World! %player_name%")
 ```
 
 以上四段代码的效果是完全相同的。
-
-:::info
-函数包在内部的处理与普通脚本中定义的函数完全相同，导入的语法也相同。
-:::

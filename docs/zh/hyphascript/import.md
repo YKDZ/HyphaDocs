@@ -27,7 +27,7 @@ const random = new Random()
 
 ## 导入 .hps 模块
 
-HS 默认提供类似 JS commonjs 模块的动态模块导入机制（但语法累类似ESM），模块在用时被按需加载。
+HS 默认提供类似 `JS CommonJS` 模块的动态模块导入机制（但语法类似 `ESM`），模块在用时被按需加载。
 
 以下是合法的导入：
 
